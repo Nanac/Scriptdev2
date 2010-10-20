@@ -16,8 +16,8 @@
 
 /* ScriptData
 SDName: Boss_Skadi
-SD%Complete: 20%
-SDComment: starts at trigger 4991
+SD%Complete: 99%
+SDComment: 
 SDCategory: Utgarde Pinnacle
 EndScriptData */
 
@@ -51,12 +51,12 @@ enum
     SPELL_POISONED_H                    = 59334,
 
     
-    SPELL_SUMMON_GAUNTLET_MOBS          = 48630,                // tick every 30 sec
-    SPELL_SUMMON_GAUNTLET_MOBS_H        = 59275,                // tick every 25 sec
+    SPELL_SUMMON_GAUNTLET_MOBS          = 48630,                
+    SPELL_SUMMON_GAUNTLET_MOBS_H        = 59275,                // Faisable toutes les 25 sec
 
-    SPELL_GAUNTLET_PERIODIC             = 47546,                // what is this? Unknown use/effect, but probably related
+    SPELL_GAUNTLET_PERIODIC             = 47546,                
 
-    SPELL_LAUNCH_HARPOON                = 48642,                // this spell hit drake to reduce HP (force triggered from 48641)
+    SPELL_LAUNCH_HARPOON                = 48642,                // Dispell -HP )
     ITEM_HARPOON                        = 37372,
 
     SPELL_SUMMON_HARPOONER_E            = 48633,
@@ -64,12 +64,12 @@ enum
     SPELL_SUMMON_WITCH_DOCTOR_E         = 48636,
     SPELL_SUMMON_WITCH_DOCTOR_W         = 48635
 
-    // ToDo: Find spell summoning warrior
+    
 };
 
 uint64 goHarpoons[3] = {GO_HARPOON1 ,GO_HARPOON2, GO_HARPOON3};
 
-// has to be replaced by propper spells (summon ymirjar harpooners, 
+ 
 uint32 m_uiSkadiAdds[3] = {26692, 26690, 26691};
 
 /*######
@@ -186,7 +186,7 @@ struct MANGOS_DLL_DECL boss_skadiAI : public ScriptedAI
                     {
                         DoScriptText(EMOTE_HARPOON_RANGE, m_creature);
 
-                        //only 1 from 3 harpoons  is  aloowe to use at one time
+                        
                         if (GameObject* pGo = m_pInstance->instance->GetGameObject(m_pInstance->GetData64(goHarpoons[urand(0,2)])))
                             pGo->RemoveFlag(GAMEOBJECT_FLAGS, GO_FLAG_UNK1);
 
@@ -220,7 +220,7 @@ struct MANGOS_DLL_DECL boss_skadiAI : public ScriptedAI
                     case 1: DoScriptText(SAY_DRAKEBREATH_2, m_creature); break;
                     case 2: DoScriptText(SAY_DRAKEBREATH_3, m_creature); break;
                 }
-                //breath ID missing
+                // MANQUE D'informations (ID)
                 if(Unit* pPlayer = m_creature->SelectAttackingTarget(ATTACKING_TARGET_RANDOM,0))
                 {
                     DoCastSpellIfCan(pPlayer, m_bIsRegularMode ? SPELL_POISONED_SPEAR : SPELL_POISONED_SPEAR_H);
