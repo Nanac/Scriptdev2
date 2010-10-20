@@ -102,13 +102,13 @@ struct MANGOS_DLL_DECL boss_skadiAI : public ScriptedAI
 
     void Reset()
     {
-        //Land Phase
+        
         m_uiCrushTimer              = urand(5000, 10000);
         m_uiPoisonedSpearTimer      = urand(5000, 10000);
         m_uiWirlwhindTimer          = urand(5000, 10000);
         m_bIsLandPhase              = false;
 
-        //Event Phase
+        
         m_uiGraufBrathTimer         = 30000;
         m_uiNextWaveCount           = 0;
         m_uiIsInHarpoonRangeTimer   = urand(5000, 10000);
@@ -226,7 +226,7 @@ struct MANGOS_DLL_DECL boss_skadiAI : public ScriptedAI
                     DoCastSpellIfCan(pPlayer, m_bIsRegularMode ? SPELL_POISONED_SPEAR : SPELL_POISONED_SPEAR_H);
                     pPlayer->CastSpell(pPlayer, m_bIsRegularMode ? SPELL_POISONED : SPELL_POISONED_H, true);
                 }
-                //Spell brath id ?
+                
                 m_uiGraufBrathTimer = urand(10000, 20000);
             }
             else
