@@ -17,7 +17,7 @@
 /* ScriptData
 SDName: Boss_Skadi
 SD%Complete: 99%
-SDComment: 
+SDComment: Manque quelques id . 
 SDCategory: Utgarde Pinnacle
 EndScriptData */
 
